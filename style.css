@@ -1,0 +1,437 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  height: 100vh;
+  width: 100%;
+}
+
+body {
+  font-size: 1.6rem; /*normal size*/
+}
+
+/* My color pallete */
+* {
+  --main-theme-color: #303841;
+  --secondary-color: #45567d;
+  --complementary-color: #be3144;
+  --color-white: #ededed;
+}
+
+/*-----Font styling-----
+
+Title            Body            Header            nav
+Open Sans        Open Sans
+
+Roboto Slab                      Roboto Slab
+
+                                 Montserrat        Montserrat
+
+Playfair Display                 Playfair Display
+*/
+
+/* h1 h2{
+    font-family: "Montserrat", sans-serif;
+} */
+
+#page {
+  display: grid;
+  grid-template-rows: repeat(auto, 100%);
+  grid-template-areas: "navbar" "welcome" "projects" "contact";
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: "Roboto Slab", sans-serif;
+}
+
+nav {
+  grid-area: navbar;
+  position: fixed;
+  width: 100%;
+  height: 65px;
+  top: 0;
+  left: 0;
+  background-color: var(--complementary-color);
+}
+
+nav div {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: "logo nav-links";
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+header {
+  max-height: 65px;
+}
+header img {
+  min-width: 40px;
+  max-width: 65px;
+  min-height: 40px;
+  max-height: 65px;
+  overflow: hidden;
+  /* transition: transform 0.8 ease-in-out */
+}
+
+/* img:active{
+    transform: rotate(360deg);
+} */
+
+nav ul {
+  list-style: none;
+  grid-area: nav-links;
+  align-self: center;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  justify-self: right;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-evenly;
+  align-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  padding-right: 2rem;
+}
+
+nav ul a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--color-white);
+  height: 100%;
+  width: 100%;
+}
+
+nav ul a::before {
+  display: block;
+  content: "";
+  padding: 1.2rem;
+}
+
+nav ul a::after {
+  display: block;
+  content: "";
+  padding: 1.1rem;
+}
+
+nav div a::before:target {
+  background-color: var(--main-theme-color);
+}
+.active:hover {
+  background-color: var(--secondary-color);
+  color: var(--color-white);
+}
+.active:active {
+  transform: scale(1.05);
+}
+
+/* Page start */
+#welcome-section {
+  grid-area: welcome;
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  background-color: var(--main-theme-color);
+}
+
+#welcome-div {
+  /* width: 50%; */
+
+  margin: 0 auto;
+  align-self: center;
+  text-align: center;
+}
+#welcome-div h1 {
+  /* margin: 0 auto; */
+  font-weight: 600;
+  color: var(--color-white);
+  font-size: 5rem;
+  padding: 0 1rem;
+}
+
+#welcome-div h2 {
+  font-size: 3.2rem;
+  font-weight: 400;
+  color: var(--complementary-color);
+  font-style: italic;
+}
+
+#welcome-info {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+  margin-top: 2rem;
+  color: var(--color-white);
+}
+
+#projects {
+  grid-area: projects;
+  min-height: 100vh;
+  height: 100%;
+  width: 100vw;
+  background-color: var(--secondary-color);
+}
+
+#projects h1 {
+  width: 100%;
+  padding: 1rem 1rem;
+  max-width: 1300px;
+  margin: 5rem auto 0rem;
+  height: min-content;
+  grid-area: h1;
+  text-align: center;
+  /* padding:1.5rem; */
+  font-weight: 600;
+  /* padding: 2rem 0; */
+  font-size: 3.6rem;
+  color: var(--color-white);
+  border-bottom: 2px solid var(--color-white);
+}
+
+#project-div {
+  width: 95%;
+  min-height: 100vh;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 5rem 0;
+  display: grid;
+  row-gap: 5rem;
+  column-gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  /* align-content: center;
+  justify-content: space-evenly; */
+}
+
+.project-tile {
+  margin: 0 auto;
+  min-width: 150px;
+  max-width: 400px;
+  max-height: 450px;
+  min-height: 200px;
+  width: 95%;
+  height: 100%;
+  /* height:100%; */
+  /* min-height: 310px; */
+  background-color: var(--main-theme-color);
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+  row-gap: 0;
+  text-decoration: none;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.75);
+  transition: visibility 0.8s;
+}
+
+.project-tile img {
+  /* display: block; */
+  height: 100%;
+  width: 100%;
+}
+.project-tile p {
+  color: var(--color-white);
+  /* font-family: "Roboto Slab", sans-serif; */
+  font-size: 2rem;
+  font-weight: 400;
+  align-self: center;
+  justify-self: center;
+}
+
+.project-tile p:before {
+  content: "< ";
+  color: darkgoldenrod;
+  visibility: hidden;
+}
+.project-tile p:after {
+  content: " />";
+  color: darkgoldenrod;
+  visibility: hidden;
+}
+
+/* .project-tile p:before:hover{
+    visibility:visible;
+} */
+.project-tile p:hover:before {
+  visibility: visible;
+}
+.project-tile p:hover:after {
+  visibility: visible;
+}
+
+#contact {
+  grid-area: contact;
+  min-height: 100vh;
+  background-color: #303841;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+#contact h1 {
+  font-weight: 500;
+  color: #ededed;
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+#footer-link-container {
+  width: 100%;
+
+  margin: 4rem auto 0;
+  display: grid;
+  gap: 1rem 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+#contact a {
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.5s;
+}
+#contact div a i,
+span {
+  text-decoration: none;
+  color: var(--color-white);
+  font-size: 2rem;
+}
+
+#profile-link:hover {
+  transform: translateY(10px);
+}
+
+
+@media only screen and (min-width: 800px){
+    #contact h1 {
+        font-size: 6.2rem;
+      }
+    
+      #contact div a i,
+      span {
+        text-decoration: none;
+        color: var(--color-white);
+        font-size: 3rem;
+      }
+    
+     
+      #projects h1 {
+        margin-top: 0;
+      }
+      #projects {
+        min-height: 100vh;
+        margin: 0;
+        grid-area: projects;
+      }
+      /* #project-div{
+          width:80%;
+      } */
+      #project-tile {
+        transition: transform 0.5s ease-in-out;
+      }
+    
+      #project-tile:hover {
+        /* transform: scale(1.1);
+           */
+        /* transform: translateY(2); */
+        transform: scale(1.1);
+      }
+}
+@media only screen and (min-width: 1500px) {
+  /* html{
+       all:revert;
+       font-size: 62.5%;
+        height: 100vh;
+        width: 100%;
+       
+   } */
+  #page {
+    all: revert;
+    width:90%;
+    margin-left: auto;
+    display: grid;
+    grid-template-rows: repeat(auto, 100%);
+    font-family: "Open Sans", sans-serif;
+    overflow-x: hidden;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 9fr;
+    grid-template-areas:
+      "navbar welcome"
+      "projects projects"
+      "contact contact";
+      justify-content: center;
+      align-content: center;
+  }
+  
+
+  nav {
+    all: revert;
+    width:10%;
+    position:fixed;
+    top:0;
+    left:0;
+    height: 100%;
+    background-color: var(--complementary-color);
+    grid-area: navbar;
+  }
+
+  nav div{
+      all:revert;
+      
+      height:100%;
+      margin: 0 auto;
+      display:grid;
+      grid-template-rows: minmax(130px,1fr) 7fr;
+      grid-template-areas: "logo" "nav-links";
+  }
+
+  header{
+      
+      align-self: center;
+      justify-self: center;
+  }
+  header img{
+      all:revert;
+      width:120px;
+      height:120px;
+  }
+  nav ul{
+      
+      all:revert;
+      margin-top: 5rem;
+      width:100%;
+      list-style: none;
+      grid-area: nav-links;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      font-size: 2rem;
+      justify-self: center;
+      text-align: center;
+      /* padding-right:4rem; */
+      padding:0;
+  }
+
+  #welcome-section {
+    all: revert;
+    /* padding-bottom: 5rem; */
+    grid-area: welcome;
+    height: 100%;
+    width:100vw;
+    background-color: #303841;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+  }
+  #welcome-div {
+    margin-bottom: 15rem;
+    /* margin-right: 16rem; */
+  }
+  #welcome-div h1 {
+    font-size: 6.2rem;
+  }
+}
